@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>repl.it</title>
+        <script src="index.js"></script>
+        <link href="index.css" rel="stylesheet" type="text/css" />
+    </head>
+    <head>
+<style>
+
+div.container {
+	width: 100%;
+	border: 0px solid gray;
+}
+ 
+div#header {
+	padding: 1em;
+	color: white;
+	opacity: 0.8;
+	Background-image: url(http://media.treehugger.com/assets/images/2016/07/green-forest-trees.jpg.662x0_q70_crop-scale.jpg);
+	clear: left;
+	text-align: center;
+   font-family: American Typewriter;
+}
+ 
+div#footer {
+	padding: 1em;
+	color: white;
+	background-color: black;
+	clear: left;
+	text-align: center;
+	font-family: American Typewriter;
+}
+ 
+div#nav {
+	float: left;
+	max-width: 160px;
+	margin: 0;
+	padding: 1em;
+    	font-family: American Typewriter;
+}
+ 
+</style>
+</head>
+    <body>
+ 
+<div class="container">
+ 
+<div id ="header">
+   <h1>Carbon Footprint Calculator</h1>
+   <h2>Team CFC</h2>
+</div>
+   
+
+<div id = "main">
+ 
+  <h1>Carbon Footprint</h1>
+  <p>
+  </p>
+     <!-- This stylesheet contains specific styles for displaying the map
+         on this page. Replace it with your own styles as described in the
+         documentation:
+         https://developers.google.com/maps/documentation/javascript/tutorial -->
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var chicago = {lat: 41.85, lng: -87.65};
+        var indianapolis = {lat: 39.79, lng: -86.14};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: chicago,
+          scrollwheel: false,
+          zoom: 7
+        });
+
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          map: map
+        });
+
+        // Set destination, origin and travel mode.
+        var request = {
+          destination: indianapolis,
+          origin: chicago,
+          travelMode: 'DRIVING'
+        };
+
+        // Pass the directions request to the directions service.
+        var directionsService = new google.maps.DirectionsService();
+        directionsService.route(request, function(response, status) {
+          if (status == 'OK') {
+            // Display the route on the map.
+            directionsDisplay.setDirections(response);
+          }
+        });
+      }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7-xW9AqG-2n2bs2LmtfWwhtFyWEpGTwA&callback=initMap"
+async defer></script>
+<p>
+  
+FIND OUT YOUR CARBON FOOTPRINT
+</p>
+
+ <input type="text" id="number" placeholder="distance">
+ <p>
+   
+ </p>
+  <button onclick="calculateCarbon()">Go</button>
+ 	</form> 
+ <p>Carbon Emissions:</p>
+<p id="demo"></p>
+
+<script>
+function calculateCarbon() {
+   var p1 = document.getElementById("number").value;
+   var test = p1 / 23.6 * 8887;
+    document.getElementById("demo").innerHTML = test;
+}
+</script>
+<text>grams of CO2</text>
+
+
+
+  <h2>Enjoy!</h2>
+ 
+ 
+   
+</div>
+ 
+<div id = "footer">
+<p>Brought to you by Team CFC</p>
+</div>
+ 
+</div>
+    </body>
+</html>

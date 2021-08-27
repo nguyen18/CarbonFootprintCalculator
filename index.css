@@ -1,0 +1,32 @@
+h2
+{
+  color: white;
+}
+
+div#map
+{
+  width: 1300px;
+  height: 500px;
+  text-align: center;
+}
+
+text
+{
+  font-size: 12px;
+  color: grey;
+}
+
+p
+{
+  color: grey;
+}
+
+body
+{
+  text-align: center;
+}
+
+div#map
+{
+  align-conent: center;
+}
